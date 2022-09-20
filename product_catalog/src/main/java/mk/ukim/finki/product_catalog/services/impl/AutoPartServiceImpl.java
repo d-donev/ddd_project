@@ -10,6 +10,8 @@ import mk.ukim.finki.product_catalog.services.form.AutoPartForm;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -26,7 +28,7 @@ public class AutoPartServiceImpl implements AutoPartService {
 
     @Override
     public Auto_part createProduct(AutoPartForm form) {
-        Auto_part part = Auto_part.build(form.getAutoPartName(),form.getPrice(),form.getSales());
+        Auto_part part = Auto_part.build(form.getAutoPartName(),form.getPrice(),form.getSales(),form.getImageUrl(), form.getDesc());
         autoPartRepository.save(part);
         return part;
     }
@@ -49,6 +51,13 @@ public class AutoPartServiceImpl implements AutoPartService {
 
     @Override
     public List<Auto_part> getAll() {
-        return autoPartRepository.findAll();
+        List<Auto_part> auto_parts = autoPartRepository.findAll();
+        auto_parts.sort(Comparator.comparing(Auto_part::getPart_name));
+        return auto_parts;
+    }
+
+    @Override
+    public void deleteProduct(String id) {
+        autoPartRepository.deleteById(Auto_part_id.of(id));
     }
 }

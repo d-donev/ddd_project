@@ -1,6 +1,8 @@
 package mk.ukim.finki.order_managemant.service.forms;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import mk.ukim.finki.order_managemant.domain.model.OrderItem;
 import mk.ukim.finki.shared_kernel.domain.financial.Currency;
 
 import javax.validation.Valid;
@@ -10,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@AllArgsConstructor
 public class OrderForm {
 
     @NotNull
@@ -18,5 +21,6 @@ public class OrderForm {
     @Valid
     @NotEmpty
     private List<OrderItemForm> items = new ArrayList<>();
+
 
 }

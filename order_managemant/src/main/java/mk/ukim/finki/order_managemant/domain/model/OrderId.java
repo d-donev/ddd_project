@@ -4,7 +4,12 @@ import lombok.NonNull;
 import mk.ukim.finki.shared_kernel.domain.base.DomainObjectId;
 
 public class OrderId extends DomainObjectId {
-    protected OrderId(@NonNull String uuid) {
+    public OrderId(@NonNull String uuid) {
         super(uuid);
+    }
+
+    public static OrderId of ( String uuid) {
+        OrderId orderId = new OrderId(uuid);
+        return orderId;
     }
 }

@@ -28,6 +28,7 @@ public class AbstractEntity<ID extends DomainObjectId> {
 
     }
 
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this) {

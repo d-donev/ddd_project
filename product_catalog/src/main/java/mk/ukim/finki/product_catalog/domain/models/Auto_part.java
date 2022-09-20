@@ -23,6 +23,12 @@ public class Auto_part extends AbstractEntity<Auto_part_id> {
 
     private int num_sales;
 
+    private String imageUrl;
+
+    private String description;
+
+
+
     public Auto_part() {
         super(Auto_part_id.randomId(Auto_part_id.class));
     }
@@ -34,11 +40,13 @@ public class Auto_part extends AbstractEntity<Auto_part_id> {
 
 
 
-    public static Auto_part build(String productName, Money price, int sales) {
+    public static Auto_part build(String productName, Money price, int sales, String imageUrl, String description) {
         Auto_part p = new Auto_part();
         p.price = price;
         p.part_name = productName;
         p.num_sales = sales;
+        p.imageUrl = imageUrl;
+        p.description = description;
         return p;
     }
 

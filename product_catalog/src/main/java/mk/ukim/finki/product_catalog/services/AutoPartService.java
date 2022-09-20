@@ -13,6 +13,7 @@ public interface AutoPartService {
     Auto_part orderItemCreated(Auto_part_id productId, int quantity);
     Auto_part orderItemRemoved(Auto_part_id productId, int quantity);
     List<Auto_part> getAll();
+    void deleteProduct(String id);
 
 
 }

@@ -7,7 +7,7 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class AutoPartId extends DomainObjectId {
-    protected AutoPartId(@NonNull String uuid) {
+    public AutoPartId(@NonNull String uuid) {
         super(uuid);
     }
 

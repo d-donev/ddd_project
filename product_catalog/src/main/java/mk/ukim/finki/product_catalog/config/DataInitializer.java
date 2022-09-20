@@ -22,8 +22,8 @@ public class DataInitializer {
 
     @PostConstruct
     public void initData() {
-        Auto_part part1 = Auto_part.build("Tire", Money.valueOf(Currency.MKD,3000),4);
-        Auto_part part2 = Auto_part.build("Turbo", Money.valueOf(Currency.MKD,15000), 1);
+        Auto_part part1 = Auto_part.build("Tire", Money.valueOf(Currency.MKD,3000),4, "", "");
+        Auto_part part2 = Auto_part.build("Turbo", Money.valueOf(Currency.MKD,15000), 1, "", "");
         if (autoPartRepository.findAll().isEmpty()) {
             autoPartRepository.saveAll(Arrays.asList(part1,part2));
         }
